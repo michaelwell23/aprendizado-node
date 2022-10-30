@@ -44,4 +44,3 @@ Esse repositório é uma lista de projetos que fiz utilizando Node.js, Express.j
 * [07 - PDF Creator](https://github.com/michaelwell23/meus-projetos-menores/tree/master/projeto-pdf-creator)
 * [08 - Projeto com Gzip](https://github.com/michaelwell23/meus-projetos-menores/tree/master/gzip-teste)
 * [09 - Projeto Processador de imagens (com Jimp)](https://github.com/michaelwell23/meus-projetos-menores/tree/master/projeto-jimp)
-* [10 - Projeto Chat com Socket.io](https://github.com/michaelwell23/meus-projetos-menores/tree/master/projeto-chat)
