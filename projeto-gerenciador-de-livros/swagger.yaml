@@ -1,0 +1,162 @@
+swagger: "2.0"
+info:
+  description: "Este documento é referente a API do Meus Livros"
+  version: "1.0.0"
+  title: "Meus Livros API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:3000"
+basePath: "/"
+tags:
+- name: "livro"
+  description: "Tudo sobre livros"
+- name: "user"
+  description: "Tudo sobre usuários"
+schemes:
+- "https"
+- "http"
+paths:
+  /users:
+    get:
+      tags:
+      - "user"
+      summary: "Retorna todos os usuários"
+      description: "successful operation"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Livro"
+      security:
+      - api_key:
+        - "restrito"
+  /:
+    get:
+      tags:
+      - "livro"
+      summary: "Retorna todas as livros."
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Livro"
+      security:
+      - api_key:
+        - "restrito"
+    post:
+      tags:
+      - "livro"
+      summary: "Cria uma novo registro de livro"
+      description: ""
+      operationId: "addSerie"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Livro que desejamos criar."
+        required: true
+        schema:
+          $ref: "#/definitions/Livro"
+      responses:
+        405:
+          description: "Invalid input"
+      security:
+      - api_key:
+        - "restrito"
+  /{livroId}:
+    get:
+      tags:
+      - "livro"
+      summary: "Procurar série por id."
+      description: "Retorna uma série"
+      operationId: "getLivroById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "livroId"
+        in: "path"
+        description: "ID da livro a ser retornado"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Livro"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Serie not found"
+      security:
+      - api_key:
+        - "restrito"
+    delete:
+      tags:
+      - "livro"
+      summary: "Deleta uma séria"
+      description: ""
+      operationId: "deleteSerie"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "livroId"
+        in: "path"
+        description: "Livro a ser deletado"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Livro não encontrada"
+      security:
+      - api_key:
+        - "restrito"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-access-token"
+    in: "header"
+    scopes: 
+      restrito: restrito access
+      admin: admin
+definitions:
+  Livro:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      name:
+        type: "string"
+      status: 
+        type: "string"
+
+  User:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      username:
+        type: "string"
+      password:
+        type: "string"
+      roles: 
+        type: "string"

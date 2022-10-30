@@ -1,0 +1,34 @@
+<%- include ('../../partials/header.ejs'); %>
+
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+      <div class="container">
+          <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+              <div class="col-first ">
+                  <h1 class="text-dark"><%= noticia.title %></h1><br>
+                  <p class="text-dark"> <%= noticia.description %></p>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- End Banner Area -->
+
+    <!--================Blog Area =================-->
+  <section class="blog_area single-post-area section_gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 mt-25">
+              <p><%= noticia.content %></p>
+              <p><%= noticia.content %></p>
+              <p><%= noticia.content %></p>
+            </div>
+          </div>      
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================Blog Area =================-->
+
+<%- include ('../../partials/footer.ejs'); %>

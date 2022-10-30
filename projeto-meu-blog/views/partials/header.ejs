@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+  <head>
+    <!-- Mobile Specific Meta -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png" />
+    <!-- Author Meta -->
+    <meta name="author" content="CodePixar" />
+    <!-- Meta Description -->
+    <meta name="description" content="" />
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="" />
+    <!-- meta character set -->
+    <meta charset="UTF-8" />
+    <!-- Site Title -->
+    <title>Blog</title>
+    <!--
+		CSS
+		============================================= -->
+    <link rel="stylesheet" href="/css/linearicons.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/themify-icons.css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.css" />
+    <link rel="stylesheet" href="/css/nice-select.css" />
+    <link rel="stylesheet" href="/css/nouislider.min.css" />
+    <link rel="stylesheet" href="/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="/css/ion.rangeSlider.skinFlat.css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Start Header Area -->
+    <header class="header_area sticky-header">
+      <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light main_box">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="/">
+              Meu Blog
+              <ul class="nav navbar-nav navbar-right">
+                <i class="fa fa-rss mr-4" aria-hidden="true"></i>
+              </ul>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset"
+              id="navbarSupportedContent"
+            >
+              <ul class="nav navbar-nav menu_nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/noticias">Post's Públicos</a>
+                </li>
+
+                <% if (locals.user){ %> <% if (locals.role === 'restrito') { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/restrito/noticias"
+                    >Post's Restritas</a
+                  >
+                </li>
+                <% } %> <% if (locals.role === 'admin') { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/noticias">Área de Admin</a>
+                </li>
+                <% } %>
+
+                <li class="nav-item submenu dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user-circle mr-1" aria-hidden="true"></i>
+                    <%= locals.user.username || locals.user.name %>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <% if (locals.user.roles.length > 1){ %> <%
+                    Object.values(locals.user.roles).forEach(role => { %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/change-role/<%= role %>"
+                        ><%= role %></a
+                      >
+                    </li>
+                    <% }) %> <% } %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/logout">Sair</a>
+                    </li>
+                  </ul>
+                </li>
+                <% } else { %>
+								<li class="nav-item">
+                  <a class="nav-link" href="/login">Entrar</a>
+                </li>
+                <% } %>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                  <a href="#" class="cart">
+                    <span class="fa fa-clipboard mr-1">
+                      <a class="nav-link" href="/login">Postar</a>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header Area -->

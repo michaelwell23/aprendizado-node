@@ -1,0 +1,44 @@
+<%- include ('./partials/header') %>
+<main id="main">
+	<section id="left">
+		<div id="head">
+			<h2>Operações anteriores</h2>
+			<%if (contas.length > 0){ %> 
+				<ul>
+					<% contas.forEach(conta => { %> 
+						<p><%=conta.num1%> <%=conta.op%> <%=conta.num2%> = <%=conta.total%></p>
+					<% }) %> 
+				</ul>
+			<% } %> 
+		</div>
+	</section>
+	<section id="right">
+		<h1>Cookie Calc</h1>
+		<form method="post"  action="/calc">
+      <div id="form-sec-code" class="form-field">
+				<label for="sec-code">Numero 01</label>
+				<input type="text" maxlength="3" name="num1" placeholder="Valor 1" required>
+			</div>
+
+      <div id="form-sec-code" class="form-field">
+				<label for="sec-code">Numero 02</label>
+				<input type="text" maxlength="3" name="num2" placeholder="Valor 2" required>
+			</div>
+
+      <div id="form-date" class="form-field">
+				<div id="date-val">
+					<select id="expiry-month" name="op" required>
+						<option id="trans-label_month" value="" default="default" selected="selected">Operador</option>
+						<option value="+">+</option>
+						<option value="-">-</option>
+						<option value="*">*</option>
+						<option value="/">/</option>						
+					</select>
+				</div>
+			</div>
+
+			<button type="submit" value="calcular">Fazer Calculo</button>
+		</form>
+	</section>
+</main>
+<%- include ('partials/footer') %>

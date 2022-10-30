@@ -1,0 +1,21 @@
+<%- include ('../partials/header') %> 
+<section id="why-us" class="why-us">
+  <div class="container">
+
+    <div class="row no-gutters">
+     <% series.forEach(serie => { %> 
+        <div class="col-lg-4 col-md-6 content-item">
+          <span><%= serie.status %></span>
+          <h4><%= serie.name %></h4>
+          <p><%= serie.comments%></p>
+          <a href="/series/editar/<%= serie._id %>">Editar</a> | 
+          <a href="/series/excluir/<%= serie._id %>">Excluir</a> 
+            <img src="assets/images/quote.png" alt="">
+        </div>
+      <% }) %>
+    </div>
+
+  </div>
+</section><!-- End Why Us Section -->
+
+<%- include ('../partials/footer') %> 

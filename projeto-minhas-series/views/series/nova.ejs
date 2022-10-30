@@ -1,0 +1,35 @@
+<%- include ('../partials/header') %> 
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Adicionar Série</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+
+      <div class="col-lg-12 ">
+        <form method="post" role="form" class="php-email-form centered">
+          <div class="row">
+            <div class="form-group col-md-12 mt-3 mt-md-0">
+              <label for="name">Nome da Série</label>
+              <input type="text" class="form-control" placeholder="Nome da série" name="name"/>
+            </div>
+            <div class="form-group col-md-12 mt-3 mt-md-0">
+              <label for="name">Status da Série</label>
+              <select class="form-control" id="status" name="status">
+                <option value="to-watch">Para Assistir</option>
+                <option value="watching">Assistindo</option>
+                <option value="watched">Assistido</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group mt-13">
+            <label for="name">Descrição da Série</label>
+            <textarea type="text" rows="15" class="form-control" id="exampleInputEmail" aria-describedby="nameHelp" placeholder="Descrição" name="comments"></textarea>
+          </div>
+          <div class="text-center"><button type="submit">Salvar Série</button></div>
+        </form>
+      </div>
+  </div>
+</section><!-- End Contact Section -->
+<%- include ('../partials/footer') %> 

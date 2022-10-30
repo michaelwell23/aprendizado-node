@@ -1,0 +1,25 @@
+{
+  "name": "projeto-gerenciador-de-livros",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "./node_modules/.bin/mocha --reporter spec \"./{,!(node_modules)/**/}*.test.js\"",
+    "test:e2e": "./node_modules/.bin/mocha --reporter spec \"./tests/*.test.js\""
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "2.8.4",
+    "express": "4.15.4",
+    "jsonwebtoken": "^8.0.0",
+    "mongoose": "4.11.9",
+    "swagger-ui-express": "2.0.7",
+    "yamljs": "0.3.0"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "3.5.0",
+    "supertest": "3.0.0"
+  }
+}

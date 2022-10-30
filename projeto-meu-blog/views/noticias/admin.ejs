@@ -1,0 +1,39 @@
+<%- include ('../partials/header.ejs'); %>
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+      <div class="container">
+          <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+              <div class="col-first ">
+                  <h1 class="text-dark">Área de Admin</h1><br>
+                  <p class="text-dark"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis in molestias voluptas, corporis libero officiis quas ut similique dignissimos animi consectetur iste aut ipsa, minus perspiciatis quam! Eius, et accusamus.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- End Banner Area -->
+
+<section class="blog_categorie_area">
+  <div class="container">
+    <div class="row">
+      <% noticias.forEach(noticia => { %>
+        <div class="col-lg-4">
+          <div class="categories_post">
+            <a href="/noticia/<%=noticia.id%>">
+            <img src="https://img.freepik.com/fotos-gratis/fundo-de-papel-texturizado-liso-preto_53876-98333.jpg?w=360" alt="post" />
+            <div class="categories_details">
+              <div class="categories_text">
+                  <h5><%= noticia.title%></h5>
+                  <div class="border_line"></div>
+                  <p>Entre para ver a notícia</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <br>
+        </div>
+      <% }) %>   
+    </div>
+  </div>
+</section>
+    
+<%- include ('../partials/footer.ejs'); %>
